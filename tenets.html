@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="The Tenets of the Church of Infinite Knowledge — commitments to knowledge, nonviolence, and responsibility." />
+  <title>Tenets · Church of Infinite Knowledge</title>
+
+  <style>
+    /* --- SAME VARIABLES & BASE STYLES AS HOME --- */
+    :root{
+      --bg0:#050510;
+      --bg1:#07071a;
+      --card: rgba(255,255,255,.06);
+      --text:#f2f3ff;
+      --muted: rgba(242,243,255,.74);
+      --p:#b56cff;
+      --b:#5ad7ff;
+      --pk:#ff4fd8;
+      --shadow: 0 20px 60px rgba(0,0,0,.55);
+      --radius: 18px;
+      --max: 900px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      color:var(--text);
+      font: 16px/1.6 ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+      background:
+        radial-gradient(900px 500px at 20% 10%, rgba(181,108,255,.16), transparent 55%),
+        radial-gradient(900px 600px at 80% 80%, rgba(255,79,216,.12), transparent 55%),
+        linear-gradient(180deg, var(--bg0), var(--bg1));
+    }
+    a{color:inherit}
+    .wrap{max-width:var(--max); margin:0 auto; padding:28px 20px 64px}
+
+    /* Nav */
+    .nav{
+      display:flex; justify-content:space-between; align-items:center;
+      gap:16px; padding:14px;
+      background: rgba(255,255,255,.04);
+      border:1px solid rgba(255,255,255,.10);
+      border-radius:999px;
+      backdrop-filter: blur(10px);
+    }
+    .nav a{color:var(--muted); text-decoration:none; padding:10px 12px; border-radius:999px}
+    .nav a:hover{color:var(--text); background:rgba(255,255,255,.06)}
+    .brand{font-weight:700; letter-spacing:.3px}
+
+    /* Header */
+    h1{
+      margin:28px 0 12px;
+      font-size:42px;
+      line-height:1.1;
+      letter-spacing:-.7px;
+    }
+    .lead{
+      font-size:18px;
+      color:var(--muted);
+      max-width:70ch;
+    }
+
+    /* Tenet blocks */
+    .tenet{
+      margin-top:26px;
+      padding:22px;
+      border-radius:var(--radius);
+      background: rgba(255,255,255,.05);
+      border:1px solid rgba(255,255,255,.10);
+      box-shadow:var(--shadow);
+    }
+    .tenet h2{
+      margin:0 0 8px;
+      font-size:22px;
+      letter-spacing:-.3px;
+    }
+    .accent{
+      height:3px; width:64px; border-radius:999px;
+      background: linear-gradient(90deg, var(--p), var(--b), var(--pk));
+      margin:10px 0 14px;
+    }
+    .tenet p{
+      margin:0 0 10px;
+      color:var(--muted);
+    }
+
+    .closing{
+      margin-top:36px;
+      padding:24px;
+      border-radius:var(--radius);
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      border:1px solid rgba(255,255,255,.12);
+    }
+
+    footer{
+      margin-top:40px;
+      font-size:13px;
+      color:rgba(242,243,255,.60);
+      display:flex; justify-content:space-between; flex-wrap:wrap;
+      gap:12px;
+    }
+    /* --- TENETS HERO HEADER --- */
+.tenets-hero{
+  position: relative;
+  width: 100%;
+  min-height: 420px;
+  margin: 24px 0 40px;
+  border-radius: var(--radius);
+  overflow: hidden;
+  background:
+    url("assets/tenets-header.png") center / cover no-repeat;
+  border: 1px solid rgba(255,255,255,.12);
+  box-shadow: var(--shadow);
+}
+
+.tenets-hero-overlay{
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(5,5,16,.55),
+      rgba(5,5,16,.70)
+    ),
+    radial-gradient(
+      600px 300px at 50% 30%,
+      rgba(181,108,255,.22),
+      transparent 65%
+    );
+}
+
+
+.tenets-hero-content{
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  padding: 48px 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 720px;
+}
+
+.tenets-hero h1{
+  margin: 0 0 14px;
+  font-size: 44px;
+  line-height: 1.1;
+  letter-spacing: -0.8px;
+}
+
+.tenets-hero p{
+  margin: 0;
+  font-size: 18px;
+  color: var(--muted);
+  max-width: 60ch;
+}
+
+@media (max-width: 700px){
+  .tenets-hero{
+    min-height: 360px;
+  }
+  .tenets-hero h1{
+    font-size: 36px;
+  }
+}
+
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <!-- NAV -->
+    <header class="nav">
+      <div class="brand">COIK · coik.org</div>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="tenets.html">Tenets</a>
+        <a href="contact.html">Contact</a>
+        <!-- TODO: replace with Discord link -->
+        <a href="#">Join (Discord)</a>
+      </nav>
+    </header>
+
+    <!-- HEADER -->
+    <main>
+     <!-- TENETS HERO HEADER -->
+<section class="tenets-hero">
+  <div class="tenets-hero-overlay"></div>
+
+  <div class="tenets-hero-content">
+    <!-- EDITABLE TEXT -->
+    <h1>The Tenets</h1>
+    <p>
+      These are not beliefs to profess or doctrines to defend.
+      They are commitments—ways of showing up in a world that does not improve on its own.
+    </p>
+  </div>
+</section>
+
+
+      <!-- TENET 1 -->
+      <section class="tenet">
+        <h2>1. We commit to the pursuit of knowledge</h2>
+        <div class="accent"></div>
+        <p>
+          We believe the world becomes better when people understand it more clearly.
+          Knowledge—carefully gathered, openly shared, and honestly revised—is our most
+          reliable tool for reducing suffering and expanding human possibility.
+        </p>
+        <p>
+          This commitment asks more of us than faith. It asks us to be curious when certainty
+          would be easier, to change our minds when evidence demands it, and to admit what
+          we do not yet know.
+        </p>
+      </section>
+
+      <!-- TENET 2 -->
+      <section class="tenet">
+        <h2>2. We reject faith as a substitute for understanding</h2>
+        <div class="accent"></div>
+        <p>
+          Hope is not a plan. Prayer is not a mechanism. Good intentions do not reliably
+          produce good outcomes.
+        </p>
+        <p>
+          When something is broken—socially, morally, or structurally—we believe the ethical
+          response is to study it, understand it, and work to change it. Not to wait, not to
+          wish, and not to defer responsibility to forces beyond human influence.
+        </p>
+      </section>
+
+      <!-- TENET 3 -->
+      <section class="tenet">
+        <h2>3. We commit to nonviolence, including non-coercion</h2>
+        <div class="accent"></div>
+        <p>
+          Violence does not only mean physical harm. It also includes coercion, domination,
+          and the use of power to force compliance rather than earn understanding.
+        </p>
+        <p>
+          We aim to persuade through reason, empathy, and shared inquiry. Influence should
+          be justified, not imposed. A world built through force may function, but it does
+          not flourish.
+        </p>
+      </section>
+
+      <!-- TENET 4 -->
+      <section class="tenet">
+        <h2>4. We accept human fallibility without surrendering responsibility</h2>
+        <div class="accent"></div>
+        <p>
+          We are not perfect, and we do not expect perfection from one another.
+          Progress comes from sustained effort, reflection, and correction—not from purity
+          or moral grandstanding.
+        </p>
+        <p>
+          Membership is an intention, not a performance. What matters is the ongoing attempt
+          to live these commitments honestly, even when we fall short.
+        </p>
+      </section>
+
+      <!-- TENET 5 -->
+      <section class="tenet">
+        <h2>5. We build community to practice these commitments together</h2>
+        <div class="accent"></div>
+        <p>
+          Knowledge grows faster in conversation. Ethics strengthen through shared norms.
+          Nonviolence becomes possible when people belong to something larger than themselves.
+        </p>
+        <p>
+          This church exists not to declare answers, but to host the work of figuring things
+          out—together.
+        </p>
+      </section>
+
+      <!-- CLOSING -->
+      <section class="closing">
+        <p>
+          These tenets will not save the world on their own.
+          But they point toward the only approaches that ever have: understanding reality
+          as it is, caring about the consequences of our actions, and choosing methods that
+          actually work.
+        </p>
+        <p>
+          If that sounds like something worth committing to—even imperfectly—you already
+          belong here.
+        </p>
+      </section>
+    </main>
+
+    <footer>
+      <div>© <span id="y"></span> Church of Infinite Knowledge</div>
+      <div>
+        <a href="index.html">Home</a> ·
+        <a href="contact.html">Contact</a> ·
+        <!-- TODO -->
+        <a href="#">Join (Discord)</a>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

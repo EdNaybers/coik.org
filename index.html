@@ -3,11 +3,442 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Church of Infinite Knowledge — A free, nonviolent community committed to creating, sharing, and advancing knowledge." />
   <title>Church of Infinite Knowledge</title>
+
+  <style>
+    :root{
+      --bg0:#050510;
+      --bg1:#07071a;
+      --card: rgba(255,255,255,.06);
+      --card2: rgba(255,255,255,.08);
+      --text:#f2f3ff;
+      --muted: rgba(242,243,255,.74);
+
+      /* Accent colors (purple, blue, pink) */
+      --p:#b56cff;
+      --b:#5ad7ff;
+      --pk:#ff4fd8;
+
+      --ring: rgba(90,215,255,.35);
+      --shadow: 0 20px 60px rgba(0,0,0,.55);
+      --radius: 18px;
+      --max: 1080px;
+    }
+
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      color:var(--text);
+      font: 16px/1.55 ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      background:
+        radial-gradient(1200px 600px at 20% 10%, rgba(181,108,255,.18), transparent 55%),
+        radial-gradient(900px 500px at 80% 20%, rgba(90,215,255,.16), transparent 52%),
+        radial-gradient(900px 600px at 70% 85%, rgba(255,79,216,.12), transparent 55%),
+        linear-gradient(180deg, var(--bg0), var(--bg1));
+      overflow-x:hidden;
+    }
+
+    a{color:inherit}
+    .wrap{max-width:var(--max); margin:0 auto; padding:28px 20px 64px}
+
+    /* Top nav */
+    .nav{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:16px; padding:14px 14px;
+      background: rgba(255,255,255,.04);
+      border:1px solid rgba(255,255,255,.10);
+      border-radius: 999px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 10px 40px rgba(0,0,0,.35);
+    }
+    .brand{
+      display:flex; align-items:center; gap:12px;
+      min-width: 220px;
+    }
+    .brand .dot{
+      width:12px; height:12px; border-radius:999px;
+      background: linear-gradient(135deg, var(--p), var(--b), var(--pk));
+      box-shadow: 0 0 0 6px rgba(181,108,255,.10), 0 0 22px rgba(90,215,255,.25);
+      flex:0 0 auto;
+    }
+    .brand strong{font-weight:700; letter-spacing:.2px}
+    .navlinks{
+      display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end;
+    }
+    .nav a{
+      text-decoration:none;
+      padding:10px 12px;
+      border-radius:999px;
+      border:1px solid transparent;
+      color: var(--muted);
+    }
+    .nav a:hover{
+      border-color: rgba(255,255,255,.14);
+      background: rgba(255,255,255,.04);
+      color: var(--text);
+    }
+
+    /* Hero */
+    .hero{
+      margin-top:18px;
+      border-radius: var(--radius);
+      border: 1px solid rgba(255,255,255,.10);
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      box-shadow: var(--shadow);
+      overflow:hidden;
+      position:relative;
+    }
+    .hero::before{
+      content:"";
+      position:absolute; inset:-2px;
+      background:
+        radial-gradient(600px 240px at 20% 15%, rgba(181,108,255,.25), transparent 60%),
+        radial-gradient(520px 280px at 80% 20%, rgba(90,215,255,.22), transparent 60%),
+        radial-gradient(700px 320px at 60% 100%, rgba(255,79,216,.18), transparent 60%);
+      filter: blur(10px);
+      opacity:.9;
+      pointer-events:none;
+    }
+    .heroInner{
+      position:relative;
+      padding: 34px 22px;
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 26px;
+      align-items:center;
+    }
+    @media (max-width: 900px){
+      .heroInner{grid-template-columns: 1fr}
+    }
+
+    .kicker{
+      display:inline-flex;
+      gap:10px;
+      align-items:center;
+      padding:8px 12px;
+      border-radius:999px;
+      background: rgba(0,0,0,.25);
+      border: 1px solid rgba(255,255,255,.12);
+      color: var(--muted);
+      width: fit-content;
+    }
+    .kicker .pill{
+      font-size:12px;
+      padding:4px 10px;
+      border-radius:999px;
+      background: rgba(255,255,255,.07);
+      border: 1px solid rgba(255,255,255,.10);
+      color: var(--text);
+      letter-spacing:.25px;
+    }
+
+    h1{
+      margin:14px 0 10px;
+      font-size: 44px;
+      line-height: 1.08;
+      letter-spacing: -0.8px;
+    }
+    @media (max-width: 520px){ h1{font-size:36px} }
+
+    .lead{
+      margin: 0 0 18px;
+      color: var(--muted);
+      font-size: 18px;
+      max-width: 58ch;
+    }
+
+    .ctaRow{
+      display:flex; gap:12px; flex-wrap:wrap;
+      margin-top: 18px;
+    }
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      gap:10px;
+      padding: 12px 14px;
+      border-radius: 12px;
+      text-decoration:none;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
+      color: var(--text);
+      box-shadow: 0 10px 28px rgba(0,0,0,.35);
+      transition: transform .12s ease, border-color .12s ease, background .12s ease;
+    }
+    .btn:hover{ transform: translateY(-1px); border-color: rgba(90,215,255,.35); background: rgba(255,255,255,.08);}
+    .btnPrimary{
+      border: none;
+      background: linear-gradient(135deg, rgba(181,108,255,.95), rgba(90,215,255,.85), rgba(255,79,216,.90));
+      color: #07071a;
+      font-weight: 700;
+      box-shadow: 0 14px 40px rgba(181,108,255,.25);
+    }
+    .btnPrimary:hover{ transform: translateY(-1px); filter: brightness(1.04);}
+
+    /* Right side panel */
+    .sideCard{
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(0,0,0,.22);
+      padding: 18px;
+      position:relative;
+      overflow:hidden;
+    }
+    .sideCard::after{
+      content:"";
+      position:absolute; inset:-40px;
+      background: radial-gradient(300px 220px at 70% 20%, rgba(90,215,255,.18), transparent 60%);
+      filter: blur(14px);
+      pointer-events:none;
+    }
+    .logoText{
+      width:min(360px, 100%);
+      height:auto;
+      display:block;
+      margin: 4px 0 14px;
+      /* Makes dark logo visible on dark bg */
+      filter: invert(1) saturate(1.1) contrast(1.05)
+              drop-shadow(0 0 16px rgba(181,108,255,.35))
+              drop-shadow(0 0 24px rgba(90,215,255,.18));
+      opacity:.95;
+    }
+    .knowledgeMark{
+      width: 100%;
+      max-width: 360px;
+      aspect-ratio: 1 / 1;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.03);
+      overflow:hidden;
+      box-shadow: 0 16px 46px rgba(0,0,0,.45);
+    }
+    .knowledgeMark img{
+      width:100%; height:100%; object-fit:cover; display:block;
+      /* gives it a subtle neon lift */
+      filter: contrast(1.1) brightness(1.06) saturate(1.05);
+      mix-blend-mode: screen;
+      opacity:.92;
+    }
+    .sideSmall{
+      position:relative;
+      margin-top: 14px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    /* Sections */
+    .grid3{
+      margin-top: 22px;
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+    @media (max-width: 900px){ .grid3{grid-template-columns:1fr} }
+
+    .card{
+      border-radius: var(--radius);
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.05);
+      padding: 18px;
+    }
+    .card h3{margin:0 0 8px; font-size:16px}
+    .card p{margin:0; color: var(--muted)}
+    .accentLine{
+      height:2px; width:56px; border-radius:999px;
+      background: linear-gradient(90deg, var(--p), var(--b), var(--pk));
+      margin: 10px 0 12px;
+      opacity:.9;
+    }
+
+    /* Footer */
+    footer{
+      margin-top: 34px;
+      color: rgba(242,243,255,.60);
+      font-size: 13px;
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      align-items:center;
+      justify-content:space-between;
+      padding: 16px 4px 0;
+    }
+    footer a{color: rgba(242,243,255,.70); text-decoration:none}
+    footer a:hover{color: var(--text); text-decoration:underline}
+
+    /* --- HOME HERO HEADER IMAGE (matches Tenets header style) --- */
+.home-hero-media{
+  position: relative;
+  width: 100%;
+  min-height: 340px;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,.12);
+  box-shadow: 0 18px 55px rgba(0,0,0,.55);
+  background: url("assets/home-header.png") center / cover no-repeat;
+}
+
+.home-hero-media::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(180deg, rgba(5,5,16,.40), rgba(5,5,16,.75)),
+    radial-gradient(600px 280px at 50% 20%, rgba(181,108,255,.18), transparent 65%);
+}
+
+.home-hero-media .home-hero-text{
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  padding: 28px 22px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.home-hero-media h2{
+  margin: 0 0 8px;
+  font-size: 22px;
+  letter-spacing: -0.3px;
+}
+
+.home-hero-media p{
+  margin: 0;
+  color: rgba(242,243,255,.78);
+  max-width: 62ch;
+  font-size: 15px;
+}
+
+@media (max-width: 900px){
+  .home-hero-media{ min-height: 280px; }
+}
+.home-hero-media.full-width{
+  margin-bottom: 24px;
+}
+
+  </style>
 </head>
+
 <body>
-  <h1>Church of Infinite Knowledge</h1>
-  <p>We commit ourselves to gaining, sharing, and creating knowledge — and to nonviolence.</p>
-  <p><a href="tenets.html">Tenets</a> | <a href="contact.html">Contact</a></p>
+  <div class="wrap">
+    <!-- NAV -->
+    <header class="nav" aria-label="Site navigation">
+      <div class="brand">
+        <span class="dot" aria-hidden="true"></span>
+        <strong>COIK</strong>
+        <span style="color:rgba(242,243,255,.55)">· coik.org</span>
+      </div>
+
+      <nav class="navlinks">
+        <a href="index.html">Home</a>
+        <a href="tenets.html">Tenets</a>
+        <a href="contact.html">Contact</a>
+        <!-- TODO: Replace # with your Discord invite link -->
+        <a href="#" title="Add your Discord invite link">Join (Discord)</a>
+      </nav>
+    </header>
+
+    <!-- HERO -->
+    <main class="hero">
+
+          <div class="home-hero-text">
+    <!-- EDITABLE TEXT -->
+    <h2>Knowledge. Nonviolence. Practice.</h2>
+    <p>
+      A free secular congregation for people who want methods that work—learning, honest inquiry,
+      and non-coercive community.
+    </p>
+  </div>
+      <div class="heroInner">
+        <section>
+          <div class="kicker">
+            <span class="pill">Free to join</span>
+            <span class="pill">Nonviolent</span>
+            <span class="pill">Anti-dogma</span>
+          </div>
+
+          <!-- EDIT THIS -->
+          <h1>Church of Infinite Knowledge</h1>
+
+          <!-- EDIT THIS -->
+          <p class="lead">
+            We commit ourselves to gaining, sharing, and creating as much knowledge as possible—
+            and to rejecting faith, coercion, and intellectual laziness.
+          </p>
+
+          <div class="ctaRow">
+            <!-- TODO: Replace # with your Discord invite link -->
+            <a class="btn btnPrimary" href="#">Join the Discord</a>
+            <a class="btn" href="tenets.html">Read the Tenets</a>
+            <a class="btn" href="contact.html">Contact</a>
+          </div>
+
+          <div style="margin-top:18px;color:rgba(242,243,255,.62);max-width:70ch">
+            <!-- EDIT THIS -->
+            <small>
+              Membership is an intention, not a test: we ask for commitment to advance knowledge and nonviolence,
+              with no criteria for success—because we’re human, and we improve by trying.
+            </small>
+          </div>
+        </section>
+
+        <aside class="sideCard" aria-label="Brand panel">
+            <!-- HOME HEADER IMAGE (placeholder) -->
+<div class="home-hero-media" aria-label="Header image">
+
+</div>
+
+          <!-- If your logo filename differs, change it here -->
+          <img class="logoText" src="assets/coik_logo.png" alt="Church of Infinite Knowledge logo" />
+
+          <div class="knowledgeMark" aria-hidden="true">
+            <!-- If your mark filename differs, change it here -->
+            <img src="assets/knowledge.png" alt="" />
+          </div>
+
+          <div class="sideSmall">
+            <!-- EDIT THIS -->
+            <strong style="color:var(--text)">A secular congregation</strong><br />
+            Built for curiosity, shared learning, and peaceful community.
+          </div>
+        </aside>
+      </div>
+    </main>
+
+    <!-- VALUE CARDS -->
+    <section class="grid3" aria-label="Highlights">
+      <div class="card">
+        <h3>Knowledge, deliberately</h3>
+        <div class="accentLine"></div>
+        <p>We value evidence, honest uncertainty, and the habit of learning out loud.</p>
+      </div>
+      <div class="card">
+        <h3>Nonviolence, consistently</h3>
+        <div class="accentLine"></div>
+        <p>We reject harm and coercion. Influence should be earned through reason and care.</p>
+      </div>
+      <div class="card">
+        <h3>Belonging, without belief</h3>
+        <div class="accentLine"></div>
+        <p>Community, ritual, and meaning—without faith claims or required doctrine.</p>
+      </div>
+    </section>
+
+    <footer>
+      <div>© <span id="y"></span> Church of Infinite Knowledge · coik.org</div>
+      <div>
+        <a href="tenets.html">Tenets</a> ·
+        <a href="contact.html">Contact</a> ·
+        <!-- TODO: Replace # with your Discord invite link -->
+        <a href="#">Join (Discord)</a>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // Sets the year automatically
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>

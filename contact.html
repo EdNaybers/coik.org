@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Contact · Church of Infinite Knowledge</title>
+
+  <style>
+    :root{
+      --bg0:#050510;
+      --bg1:#07071a;
+      --text:#f2f3ff;
+      --muted:rgba(242,243,255,.72);
+      --p:#b56cff;
+      --b:#5ad7ff;
+      --pk:#ff4fd8;
+      --radius:18px;
+      --shadow:0 20px 60px rgba(0,0,0,.55);
+    }
+    body{
+      margin:0;
+      font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Arial;
+      color:var(--text);
+      background:
+        radial-gradient(800px 400px at 20% 10%, rgba(181,108,255,.16), transparent 55%),
+        linear-gradient(180deg,var(--bg0),var(--bg1));
+    }
+    a{color:inherit}
+    .wrap{max-width:800px;margin:0 auto;padding:28px 20px 64px}
+
+    .nav{
+      display:flex;justify-content:space-between;align-items:center;
+      padding:14px;border-radius:999px;
+      background:rgba(255,255,255,.04);
+      border:1px solid rgba(255,255,255,.10);
+    }
+    .nav a{color:var(--muted);text-decoration:none;padding:10px 12px;border-radius:999px}
+    .nav a:hover{color:var(--text);background:rgba(255,255,255,.06)}
+
+    h1{margin:32px 0 10px;font-size:40px;letter-spacing:-.6px}
+    .lead{font-size:18px;color:var(--muted);max-width:65ch}
+
+    .card{
+      margin-top:26px;
+      padding:22px;
+      border-radius:var(--radius);
+      background:rgba(255,255,255,.05);
+      border:1px solid rgba(255,255,255,.10);
+      box-shadow:var(--shadow);
+    }
+
+    .accent{
+      height:3px;width:64px;border-radius:999px;
+      background:linear-gradient(90deg,var(--p),var(--b),var(--pk));
+      margin:12px 0 16px;
+    }
+
+    footer{
+      margin-top:40px;
+      font-size:13px;
+      color:rgba(242,243,255,.6);
+      display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <header class="nav">
+      <div><strong>COIK</strong> · coik.org</div>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="tenets.html">Tenets</a>
+        <a href="contact.html">Contact</a>
+        <a href="https://discord.gg/A2UQ2ZsK">Join (Discord)</a>
+      </nav>
+    </header>
+
+    <main>
+      <h1>Contact</h1>
+      <p class="lead">
+        We value clarity, consent, and human-scale communication.
+        If you’d like to reach us, here’s how.
+      </p>
+
+      <section class="card">
+        <h2>Join the conversation</h2>
+        <div class="accent"></div>
+        <p>
+          The primary home of the Church of Infinite Knowledge is our Discord community.
+          That’s where discussion, events, questions, and shared learning actually happen.
+        </p>
+        <p>
+          <strong>
+            <a href="https://discord.gg/A2UQ2ZsK">Join the Discord →</a>
+          </strong>
+        </p>
+      </section>
+
+      <section class="card">
+        <h2>Direct contact</h2>
+        <div class="accent"></div>
+        <p>
+          If Discord isn’t accessible to you, or you have a matter that doesn’t belong
+          in a public forum, you may contact the organizers at:
+        </p>
+        <p>
+          <strong>contact@coik.org</strong>
+        </p>
+        <p style="color:var(--muted)">
+          (Response times vary. We are a volunteer-run organization.)
+        </p>
+      </section>
+    </main>
+
+    <footer>
+      <div>© <span id="y"></span> Church of Infinite Knowledge</div>
+      <div>
+        <a href="tenets.html">Tenets</a> ·
+        <a href="https://discord.gg/A2UQ2ZsK">Join</a>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
