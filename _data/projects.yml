@@ -1,0 +1,48 @@
+# Projects of The Church of Infinite Knowledge
+# Each project has: numeral (I/II/...), title, body (Markdown), and an
+# optional 'bullets' list. Add as many projects as you like.
+
+page:
+  title: "Our Projects"
+  lede: "The work of the church takes shape in concrete projects — chosen carefully, pursued openly, and shaped by every member who wishes to contribute."
+
+projects:
+  - numeral: "I"
+    title: "Refining the Tenets"
+    body: |
+      The tenets posted on this site are a beginning, not a final word. We do not believe that a small group of founders should hand a community its principles fully formed; a church organized around the free pursuit of knowledge ought to write its own creed together.
+
+      This project is the slow, careful, ongoing work of revising those tenets in conversation with every member who wishes to weigh in. We invite questions, objections, refinements, missing ideas, and better wording. We expect to be wrong about some things, and we want to find out where.
+
+      The aim is not consensus for its own sake. It is to arrive at a set of commitments that genuinely express what this community holds sacred — humble enough to be revised when we learn more, and clear enough to guide real action. We measure success by a single test: does this language help us change the world for the better, through knowledge and nonviolence?
+
+      **How to contribute:** bring your proposed edits, additions, or objections to the forum. Every suggestion is read. Substantive changes are discussed openly before being adopted.
+
+  - numeral: "II"
+    title: "A Reclaimed Church — A Community & Learning Center"
+    body: |
+      Our larger, longer-term project is to find an old, often-abandoned church building and take it over — not to fill it with new dogma, but to give it a second life as a community and learning center that visibly improves the neighborhood around it.
+
+      Churches were once, in many places, the most public building in town: a roof anyone could walk under, a place that hosted weddings and funerals and classes and arguments and quiet afternoons. As congregations decline, thousands of these buildings sit closed, deteriorating, or sold off to developers. We would like to put one of them back to public use.
+
+      Our vision for such a space includes:
+    bullets:
+      - "**A free public library and reading room** — books, journals, comfortable chairs, quiet hours, and open access to anyone who walks through the door."
+      - "**Classes and workshops, taught by members and neighbors** — from literacy and language to mathematics, repair, music, computing, history, philosophy, and the natural sciences. Free, always."
+      - "**A maker and repair space** — tools, sewing machines, basic electronics, and the knowledge to use them, so that the church becomes a place where skills are passed on instead of lost."
+      - "**An archive and preservation room** — where local history, oral interviews, family papers, and at-risk materials can be digitized and protected by anyone in the community."
+      - "**A quiet sanctuary** — because the impulse to sit somewhere still and think does not require a god, and good buildings for that are rarer than they should be."
+      - "**Open gatherings** — lectures, story nights, community meals, reading groups, civic forums — hosted by us, by neighbors, and by other groups who need a roof."
+    body_after: |
+      We are committed that any space we steward will be free to enter, free to use, free of proselytizing, and free of coercion of any kind. It will welcome people of every faith and of none. It will not be a clubhouse for our membership; it will be a gift to the place it stands in.
+
+      This is a years-long project. The early steps are modest: identifying candidate buildings, talking with the congregations and municipalities that own them, building the partnerships and funding model required to sustain such a space without ever charging the people who use it, and learning from organizations that already do work like this well.
+
+      **How to contribute:** if you know of a closing or unused church building, if you have experience with nonprofit stewardship, historic preservation, library science, community organizing, or accessible design, or if you simply want to help us think this through carefully — introduce yourself on the forum. Big projects start as conversations.
+
+closing:
+  title: "More to come"
+  body: |
+    These are our first projects, not our only ones. As the community grows and finds its voice, new initiatives will emerge from members themselves. This page will grow with them.
+  cta_label: "Join the conversation"
+  cta_href: "join.html"
