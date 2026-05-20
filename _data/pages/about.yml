@@ -1,0 +1,25 @@
+# About & Contact page
+
+hero:
+  title: "About the Church"
+  lede: "A non-theistic faith community devoted to learning, teaching, and the freedom of the curious mind."
+
+panels:
+  - heading: "Our story"
+    body: |
+      The Church of Infinite Knowledge began as a quiet idea: that the impulses humans have long called sacred — reverence, awe, devotion, study, gathering — do not require gods. They require only something worth orienting a life around. For us, that something is knowledge itself.
+
+      We are not a denomination, not a sect, not a splinter of any older tradition. We borrow nothing supernatural. We claim no exclusive truth. We are simply a community of people who have decided to treat learning, teaching, preserving, sharing, and creating as the central practices of a life well lived.
+
+  - heading: "How we organize"
+    body: |
+      The church has no clergy in the conventional sense, no tithes, no hierarchy of obedience. Stewardship of the community is shared. Members participate as much or as little as suits them — reading, conversing, teaching one another, or simply being present.
+
+      Our gatherings happen primarily online, so that geography is never a barrier to belonging. Anyone, anywhere, may join.
+
+contact:
+  heading: "Contact us"
+  intro: "Questions, introductions, ideas, corrections, and quiet hellos are all welcome. Use the form below — we read every message."
+  formspree_id: "mdajepbq"
+  subject_default: "New message from coik.org"
+  privacy_note: "By submitting, you agree to receive a reply at the email address you provide. We do not share your information."
