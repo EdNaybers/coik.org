@@ -1,0 +1,14 @@
+{
+  "name": "coik-site",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Build pipeline for The Church of Infinite Knowledge static site",
+  "scripts": {
+    "build": "node scripts/build.mjs"
+  },
+  "dependencies": {
+    "js-yaml": "^4.1.0",
+    "marked": "^12.0.2"
+  }
+}
