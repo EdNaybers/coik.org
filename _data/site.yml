@@ -1,0 +1,24 @@
+# Site-wide settings for The Church of Infinite Knowledge
+# Editable via the admin panel at /admin/, or directly in this file.
+
+title: "The Church of Infinite Knowledge"
+tagline: "Knowledge is sacred"
+description: >
+  The Church of Infinite Knowledge holds that learning, teaching,
+  sharing, and creating knowledge are sacred. We reject violence
+  and coercion in all forms.
+
+# Primary navigation order. Each item's 'page' must match a file
+# in _data/pages/ OR be one of the special entries: tenets, projects.
+nav:
+  - { label: "Home",            page: "home" }
+  - { label: "Tenets",          page: "tenets" }
+  - { label: "Projects",        page: "projects" }
+  - { label: "About",           page: "about" }
+  - { label: "Join & Support",  page: "join" }
+
+# Footer line. The year is auto-inserted; do not include it here.
+footer:
+  text: "The Church of Infinite Knowledge"
+  contact_link_label: "Contact"
+  join_link_label: "Join"
