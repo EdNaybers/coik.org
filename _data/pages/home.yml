@@ -1,0 +1,30 @@
+# Home page content
+# 'hero' is the big top section. 'panels' is the list of content blocks
+# below the hero — add, remove, or reorder them freely.
+
+hero:
+  show_logo: true
+  title: "Knowledge is Sacred."
+  lede: "We are a community without gods, without violence, and without coercion — dedicated to the lifelong pursuit of learning, teaching, saving, sharing, and creating knowledge."
+  buttons:
+    - { label: "Read our Tenets", href: "tenets.html", style: "primary" }
+    - { label: "Join us",         href: "join.html",   style: "ghost"  }
+
+panels:
+  - heading: "What we believe"
+    body: |
+      The Church of Infinite Knowledge is a non-theistic faith community. We do not worship deities, recite creeds of supernatural authority, or claim revelation from any unseen power. What we hold sacred is something older and quieter than any god: the human reach toward understanding.
+
+      To learn is to honor what came before us. To teach is to extend the lives of others. To preserve knowledge is to refuse the slow erasure of time. To share knowledge freely is to dissolve the hierarchies that keep people small. To create new knowledge is the closest thing we know to making the world larger.
+
+      We believe these acts — learning, teaching, saving, sharing, and creating — are themselves the sacred work.
+
+  - heading: "What we refuse"
+    body: |
+      We reject violence and coercion in all forms. No idea is so important that it justifies harming another person to spread it. No truth requires a weapon to defend it. We pursue knowledge as a freely chosen practice among free people, or we do not pursue it at all.
+
+  - heading: "Who we are for"
+    body: |
+      This church is for the curious, the skeptical, the studious, and the kind. For teachers and students, librarians and archivists, scientists and storytellers, makers and menders. For anyone who has ever felt that the urge to understand the world is itself a kind of devotion.
+
+      Membership is, and will always be, entirely free. There is no creed to sign, no fee to pay, and no leader to obey. [Learn how to join and participate.](join.html)
