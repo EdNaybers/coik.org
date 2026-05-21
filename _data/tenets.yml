@@ -5,7 +5,7 @@
 
 page:
   title: "Our Tenets"
-  lede: "These are not commandments. They are commitments — the practices we hold ourselves to as members of this church."
+  lede: "These are not commandments. They are commitments — the practices we hold ourselves to as members of this church. Knowledge that is not acted upon is unfinished; these tenets are how we finish it."
 
 tenets:
   - numeral: "I"
@@ -17,18 +17,25 @@ tenets:
       of this church.
 
   - numeral: "II"
-    title: "We worship no gods."
+    title: "Proportion belief to evidence."
     body: >
-      We make no claims about the supernatural. We do not require belief in
-      any deity, spirit, or revealed authority. Our reverence is for the
-      real, the knowable, and the still-unknown.
+      We accept claims in proportion to the evidence offered for them, and
+      no further. We make no appeals to gods, spirits, revelation, or any
+      authority that asks us to stop asking. Faith — belief held in the
+      absence of evidence or in defiance of it — is not a virtue here; it
+      is the refusal to do the work that knowledge requires. We choose
+      the harder honesty: to say "I do not yet know," to follow the
+      evidence wherever it leads, and to change our minds when it
+      changes course.
 
   - numeral: "III"
-    title: "We reject violence."
+    title: "We reject violence — in deed and in support."
     body: >
       No truth is worth a wound. No idea is advanced by harm. We do not
-      use force, threat, or intimidation to spread what we believe — and
-      we refuse to be silent when others do.
+      use force, threat, or intimidation, and we refuse to be silent when
+      others do. We also refuse to fund, purchase from, work for, or
+      lend our reputation to those who profit from violence. What we
+      know to be cruel, we do not pay for.
 
   - numeral: "IV"
     title: "We reject coercion."
@@ -59,23 +66,28 @@ tenets:
       the knowledge of those whose voices have been overlooked.
 
   - numeral: "VIII"
+    title: "Defend knowledge itself."
+    body: >
+      We stand against the burning of books, the silencing of teachers,
+      the censoring of libraries, the corruption of records, and the
+      deliberate spread of falsehood. We do not give our money, our labor,
+      or our attention to institutions that distort, suppress, or destroy
+      knowledge for power or profit. To harm knowledge is to harm everyone
+      who would have inherited it.
+
+  - numeral: "IX"
     title: "Share without gatekeeping."
     body: >
       Knowledge belongs to everyone. We oppose artificial barriers — of
       cost, caste, credential, or culture — that keep people from learning
       what they wish to learn.
 
-  - numeral: "IX"
-    title: "Create with care."
+  - numeral: "X"
+    title: "Create with care, and act on what you know."
     body: >
       To make new knowledge is to take on responsibility for it. We work
       honestly, cite generously, correct our errors openly, and consider
-      the consequences of what we bring into the world.
-
-  - numeral: "X"
-    title: "Be kind, be humble, be free."
-    body: >
-      We treat one another — and those outside this church — with dignity.
-      We hold our certainties loosely. We remember that the church belongs
-      to no one, and that every member is, in their own way, an Archivist
-      of the Infinite.
+      the consequences of what we bring into the world. And when our
+      knowledge demands action — to speak up, to walk away, to withhold
+      support, to help, to build, to repair — we act. Belief without
+      practice is not yet faith; it is only opinion.
