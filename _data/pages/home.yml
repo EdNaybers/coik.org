@@ -10,17 +10,20 @@ hero:
       href: join.html
       style: ghost
 panels:
-  - heading: What we believe
+  - heading: 'What we believe:'
     body: |-
-      The Church of Infinite Knowledge is a non-theistic faith community. We do not worship deities, recite creeds of supernatural authority, or claim revelation from any unseen power. What we hold sacred is something older and quieter than any god: the human reach toward understanding.
+      The Church of Infinite Knowledge is a serious endeavor with the aim of a better world and greater quality of life through tenacious knowledge seeking and living fully in reality. What we hold sacred is something ancient and powerful : the human reach toward understanding.
 
-      To learn is to honor what came before us. To teach is to extend the lives of others. To preserve knowledge is to refuse the slow erasure of time. To share knowledge freely is to dissolve the hierarchies that keep people small. To create new knowledge is the closest thing we know to making the world larger.
+      To learn is to honor what came before us. To teach is to extend the lives of others. To preserve knowledge is to refuse the slow erasure of time. To share knowledge freely is to dissolve the barriers that keep humanity in the dark. To create new knowledge is the closest thing we know to making the world larger.
 
-      We believe these acts — learning, teaching, saving, sharing, and creating — are themselves the sacred work.
-  - heading: What we refuse
-    body: We reject violence and coercion in all forms. No idea is so important that it justifies harming another person to spread it. No truth requires a weapon to defend it. We pursue knowledge as a freely chosen practice among free people, or we do not pursue it at all.
-  - heading: Who we are for
+      We believe these acts of learning, teaching, saving, sharing, and creating are themselves the sacred work. In support of this, we highly value questioning and disagreement to ensure that what we believe we know is accurate. Further, we believe the conditions for a rational pursuit of knowledge expansion are essential, leading us to also place nonviolence and self-ownership among our most important tenets.
+  - heading: 'What we refuse:'
     body: |-
-      This church is for the curious, the skeptical, the studious, and the kind. For teachers and students, librarians and archivists, scientists and storytellers, makers and menders. For anyone who has ever felt that the urge to understand the world is itself a kind of devotion.
+      We reject violence and coercion in all forms. No idea is so important that it justifies harming another person to spread or silence it. No truth requires a weapon to defend it. We pursue knowledge as a freely chosen practice among free people, or we do not pursue it at all. Our only agent of change is persuasion. 
 
-      Membership is, and will always be, entirely free. There is no creed to sign, no fee to pay, and no leader to obey. [Learn how to join and participate.](join.html)
+      We also reject belief without evidence, intellectual laziness, and the comfort of certainty. Living in the discomfort of admitting what we don't know, and working hard to diminish our blind spots, are important work we value.
+  - heading: 'Who we are for:'
+    body: |-
+      This church is for the curious, the scientific, the skeptical, the studious, and the kind. For anyone who has ever felt that the urge to understand the world is itself a kind of devotion. 
+
+      Membership is entirely free. There is no creed to sign, no fee to pay, and no leader to obey. To encourage the free sharing of knowledge, ideas, and criticism, we also welcome anonymous participation. [Learn how to join and participate.](join.html)
