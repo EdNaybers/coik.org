@@ -34,14 +34,13 @@ const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({
 const md = (s) => marked.parse(String(s ?? "").trim());
 const mdInline = (s) => marked.parseInline(String(s ?? "").trim());
 
-// Render an optional small looping video. Accepts a media path (e.g.
-// "assets/Tenet 1.mp4"). The path is attribute-escaped; no raw HTML is
-// taken from data. Returns "" when no video is provided.
-const videoHTML = (src, label) => {
+// Render an optional small, silent, auto-playing looping video. Accepts a
+// media path (e.g. "assets/Tenet 1.mp4"). The path is attribute-escaped;
+// no raw HTML is taken from data. Returns "" when no video is provided.
+const videoHTML = (src) => {
   if (!src) return "";
-  const cap = label ? `\n      <figcaption class="media-video-cap">${esc(label)}</figcaption>` : "";
   return `  <figure class="media-video">
-      <video src="${esc(src)}" controls muted loop playsinline preload="metadata"></video>${cap}
+      <video src="${esc(src)}" autoplay muted loop playsinline preload="auto"></video>
     </figure>`;
 };
 
@@ -128,7 +127,7 @@ function panelHTML(panel) {
   const bullets = panel.bullets && panel.bullets.length
     ? `    <ul>\n${panel.bullets.map((b) => `      <li>${mdInline(b)}</li>`).join("\n")}\n    </ul>\n`
     : "";
-  const video = panel.video ? `\n${videoHTML(panel.video, panel.video_label)}\n` : "";
+  const video = panel.video ? `\n${videoHTML(panel.video)}\n` : "";
   const cta = panel.cta_label && panel.cta_href
     ? `    <p class="center" style="margin-top:24px;"><a class="btn" href="${esc(panel.cta_href)}" rel="noopener">${esc(panel.cta_label)}</a></p>\n${panel.cta_note ? `    <p class="small center">${esc(panel.cta_note)}</p>\n` : ""}`
     : "";
@@ -183,7 +182,7 @@ function bodyClose() { return "</body>\n</html>\n"; }
 function renderHome() {
   const p = pages.home;
   const heroVideos = (p.hero && p.hero.videos && p.hero.videos.length)
-    ? `\n  <section class="container media-strip">\n${p.hero.videos.map((v) => videoHTML(v.src, v.label)).join("\n")}\n  </section>\n`
+    ? `\n  <section class="container media-strip">\n${p.hero.videos.map((v) => videoHTML(v.src)).join("\n")}\n  </section>\n`
     : "";
   const html = `${headHTML("", site.description)}
 ${bodyOpen()}
@@ -207,7 +206,7 @@ ${bodyClose()}`;
 function renderTenets() {
   const t = tenetsData;
   const list = t.tenets.map((x) => {
-    const video = x.video ? `\n${videoHTML(x.video, "Tenet " + x.numeral)}` : "";
+    const video = x.video ? `\n${videoHTML(x.video)}` : "";
     return `      <li>
         <h3>${esc(x.numeral)}. ${esc(x.title)}</h3>
         <p>${esc(String(x.body).trim())}</p>${video}
@@ -236,6 +235,7 @@ ${bodyClose()}`;
 
 function renderProjects() {
   const d = projectsData;
+  const pageVideo = (d.page && d.page.video) ? `\n  <section class="container media-strip">\n${videoHTML(d.page.video)}\n  </section>\n` : "";
   const projectPanels = d.projects.map((p) => {
     const bullets = p.bullets && p.bullets.length
       ? `    <ul>\n${p.bullets.map((b) => `      <li>${mdInline(b)}</li>`).join("\n")}\n    </ul>\n`
@@ -261,7 +261,7 @@ ${headerHTML("projects")}
 <main>
   <div class="container">
 ${heroHTML(d.page, false)}
-
+${pageVideo}
 ${projectPanels}
 
 ${closing}

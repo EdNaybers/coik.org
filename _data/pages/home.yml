@@ -11,9 +11,6 @@ hero:
       style: ghost
   videos:
     - src: "assets/Knowledge Shapes Destiny.mp4"
-      label: Knowledge Shapes Destiny
-    - src: "assets/Light the Dark.mp4"
-      label: Light the Dark
 panels:
   - heading: 'What we believe:'
     body: |-

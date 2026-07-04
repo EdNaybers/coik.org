@@ -5,6 +5,7 @@
 page:
   title: "Our Projects"
   lede: "The work of the church takes shape in concrete projects — chosen carefully, pursued openly, and shaped by every member who wishes to contribute."
+  video: "assets/Light the Dark.mp4"
 
 projects:
   - numeral: "I"

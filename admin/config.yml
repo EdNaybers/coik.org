@@ -85,6 +85,7 @@ collections:
             fields:
               - { name: title, label: "Heading", widget: string }
               - { name: lede, label: "Subheading", widget: text }
+              - { name: video, label: "Page video (optional)", widget: file, required: false, hint: "Small autoplay video shown under the projects header, e.g. assets/Light the Dark.mp4" }
           - name: projects
             label: "Projects"
             widget: list
