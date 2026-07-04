@@ -85,6 +85,217 @@ collections:
             fields:
               - { name: title, label: "Heading", widget: string }
               - { name: lede, label: "Subheading", widget: text }
+              - { name: video, label: "Page video (optional)", widget: file, required: false, hint: "Small autoplay video shown under the projects header, e.g. assets/Light the Dark.mp4" }
+          - name: projects
+            label: "Projects"
+            widget: list
+            summary: "{{numeral}} — {{title}}"
+            fields:
+              - { name: numeral, label: "Number", widget: string }
+              - { name: title, label: "Title", widget: string }
+              - { name: body, label: "Body (Markdown)", widget: markdown }
+              - { name: bullets, label: "Bullet list (optional)", widget: list, required: false, field: { name: item, label: "Bullet (Markdown)", widget: string } }
+              - { name: body_after, label: "Body after bullets (optional, Markdown)", widget: markdown, required: false }
+          - name: closing
+            label: "Closing block"
+            widget: object
+            required: false
+            fields:
+              - { name: title, label: "Heading", widget: string }
+              - { name: body, label: "Body (Markdown)", widget: markdown }
+              - { name: cta_label, label: "Button label", widget: string }
+              - { name: cta_href, label: "Button link", widget: string }
+
+  # ---------------------------------------------------------------------
+  # Home page
+  # ---------------------------------------------------------------------
+  - name: home
+    label: "Home page"
+    files:
+      - name: home
+        label: "Home"
+        file: "_data/pages/home.yml"
+        fields:
+          - name: hero
+            label: "Hero (top section)"
+            widget: object
+            fields:
+              - { name: show_logo, label: "Show logo badge", widget: boolean, default: true }
+              - { name: title, label: "Title", widget: string }
+              - { name: lede, label: "Tagline", widget: text }
+              - name: buttons
+                label: "Hero buttons"
+                widget: list
+                required: false
+                fields:
+                  - { name: label, label: "Label", widget: string }
+                  - { name: href, label: "Link", widget: string }
+                  - { name: style, label: "Style", widget: select, options: ["primary", "ghost"], default: "primary" }
+              - name: videos
+                label: "Hero videos (optional)"
+                widget: list
+                required: false
+                summary: "{{label}}"
+                fields:
+                  - { name: src, label: "Video file", widget: file, hint: "e.g. assets/Light the Dark.mp4" }
+                  - { name: label, label: "Caption (optional)", widget: string, required: false }
+          - name: panels
+            label: "Sections"
+            widget: list
+            summary: "{{heading}}"
+            fields:
+              - { name: heading, label: "Heading", widget: string }
+              - { name: body, label: "Body (Markdown)", widget: markdown }
+              - { name: video, label: "Section video (optional)", widget: file, required: false, hint: "Small looping video shown in this section" }
+              - { name: video_label, label: "Section video caption (optional)", widget: string, required: false }
+
+  # ---------------------------------------------------------------------
+  # About page
+  # ---------------------------------------------------------------------
+  - name: about
+    label: "About page"
+    files:
+      - name: about
+        label: "About"
+        file: "_data/pages/about.yml"
+        fields:
+          - name: hero
+            label: "Hero"
+            widget: object
+            fields:
+              - { name: title, label: "Title", widget: string }
+              - { name: lede, label: "Tagline", widget: text }
+          - name: panels
+            label: "Sections"
+            widget: list
+            summary: "{{heading}}"
+            fields:
+              - { name: heading, label: "Heading", widget: string }
+              - { name: body, label: "Body (Markdown)", widget: markdown }
+          - name: contact
+            label: "Contact form"
+            widget: object
+            fields:
+              - { name: heading, label: "Heading", widget: string }
+              - { name: intro, label: "Intro", widget: text }
+              - { name: formspree_id, label: "Formspree form ID", widget: string }
+              - { name: subject_default, label: "Default subject line", widget: string }
+              - { name: privacy_note, label: "Privacy note", widget: text }
+
+  # ---------------------------------------------------------------------
+  # Join page
+  # ---------------------------------------------------------------------
+  - name: join
+    label: "Join & Support page"
+    files:
+      - name: join
+        label: "Join & Support"
+        file: "_data/pages/join.yml"
+        fields:
+          - name: hero
+            label: "Hero"
+            widget: object
+            fields:
+              - { name: title, label: "Title", widget: string }
+              - { name: lede, label: "Tagline", widget: text }
+          - name: panels
+            label: "Sections"
+            widget: list
+            summary: "{{heading}}"
+            fields:
+              - { name: heading, label: "Heading", widget: string }
+              - { name: body, label: "Body (Markdown)", widget: markdown }
+              - { name: bullets, label: "Bullet list (optional)", widget: list, required: false, field: { name: item, label: "Bullet (Markdown)", widget: string } }
+              - { name: cta_label, label: "Button label (optional)", widget: string, required: false }
+              - { name: cta_href, label: "Button link (optional)", widget: string, required: false }
+              - { name: cta_note, label: "Note under button (optional)", widget: text, required: false }
+# Sveltia CMS configuration for The Church of Infinite Knowledge
+# Reference: https://github.com/sveltia/sveltia-cms
+
+backend:
+  name: github
+  repo: EdNaybers/coik.org
+  branch: main
+  # Sveltia supports direct PAT login; the option appears on the login screen.
+  auth_type: pat
+
+# Where uploaded images go (logo, photos, etc.)
+media_folder: "assets"
+public_folder: "/assets"
+
+# Show a preview when editing (Sveltia handles this; safe defaults below)
+publish_mode: simple
+
+collections:
+  # ---------------------------------------------------------------------
+  # Site-wide settings (single file)
+  # ---------------------------------------------------------------------
+  - name: settings
+    label: "Site Settings"
+    files:
+      - name: site
+        label: "Site (title, nav, footer)"
+        file: "_data/site.yml"
+        fields:
+          - { name: title, label: "Site title", widget: string }
+          - { name: tagline, label: "Tagline", widget: string }
+          - { name: description, label: "Meta description", widget: text }
+          - name: nav
+            label: "Navigation"
+            widget: list
+            fields:
+              - { name: label, label: "Link label", widget: string }
+              - { name: page, label: "Page key", widget: string, hint: "home, tenets, projects, about, or join" }
+          - name: footer
+            label: "Footer"
+            widget: object
+            fields:
+              - { name: text, label: "Footer text", widget: string }
+              - { name: contact_link_label, label: "Contact link label", widget: string }
+              - { name: join_link_label, label: "Join link label", widget: string }
+
+  # ---------------------------------------------------------------------
+  # Tenets (structured, reorderable)
+  # ---------------------------------------------------------------------
+  - name: tenets
+    label: "Tenets"
+    files:
+      - name: tenets
+        label: "Tenets page"
+        file: "_data/tenets.yml"
+        fields:
+          - name: page
+            label: "Page header"
+            widget: object
+            fields:
+              - { name: title, label: "Heading", widget: string }
+              - { name: lede, label: "Subheading", widget: text }
+          - name: tenets
+            label: "Tenets"
+            widget: list
+            summary: "{{numeral}} — {{title}}"
+            fields:
+              - { name: numeral, label: "Number (I, II, ...)", widget: string }
+              - { name: title, label: "Title", widget: string }
+              - { name: body, label: "Body", widget: text }
+              - { name: video, label: "Video (optional)", widget: file, required: false, hint: "Small looping video shown under this tenet, e.g. assets/Tenet 1.mp4" }
+
+  # ---------------------------------------------------------------------
+  # Projects
+  # ---------------------------------------------------------------------
+  - name: projects
+    label: "Projects"
+    files:
+      - name: projects
+        label: "Projects page"
+        file: "_data/projects.yml"
+        fields:
+          - name: page
+            label: "Page header"
+            widget: object
+            fields:
+              - { name: title, label: "Heading", widget: string }
+              - { name: lede, label: "Subheading", widget: text }
           - name: projects
             label: "Projects"
             widget: list
