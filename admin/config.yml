@@ -26,22 +26,22 @@ collections:
         label: "Site (title, nav, footer)"
         file: "_data/site.yml"
         fields:
-          - { name: title,       label: "Site title",     widget: string }
-          - { name: tagline,     label: "Tagline",        widget: string }
+          - { name: title, label: "Site title", widget: string }
+          - { name: tagline, label: "Tagline", widget: string }
           - { name: description, label: "Meta description", widget: text }
           - name: nav
             label: "Navigation"
             widget: list
             fields:
               - { name: label, label: "Link label", widget: string }
-              - { name: page,  label: "Page key",   widget: string, hint: "home, tenets, projects, about, or join" }
+              - { name: page, label: "Page key", widget: string, hint: "home, tenets, projects, about, or join" }
           - name: footer
             label: "Footer"
             widget: object
             fields:
-              - { name: text,                label: "Footer text",        widget: string }
-              - { name: contact_link_label,  label: "Contact link label", widget: string }
-              - { name: join_link_label,     label: "Join link label",    widget: string }
+              - { name: text, label: "Footer text", widget: string }
+              - { name: contact_link_label, label: "Contact link label", widget: string }
+              - { name: join_link_label, label: "Join link label", widget: string }
 
   # ---------------------------------------------------------------------
   # Tenets (structured, reorderable)
@@ -58,15 +58,16 @@ collections:
             widget: object
             fields:
               - { name: title, label: "Heading", widget: string }
-              - { name: lede,  label: "Subheading", widget: text }
+              - { name: lede, label: "Subheading", widget: text }
           - name: tenets
             label: "Tenets"
             widget: list
             summary: "{{numeral}} — {{title}}"
             fields:
               - { name: numeral, label: "Number (I, II, ...)", widget: string }
-              - { name: title,   label: "Title",                widget: string }
-              - { name: body,    label: "Body",                 widget: text }
+              - { name: title, label: "Title", widget: string }
+              - { name: body, label: "Body", widget: text }
+              - { name: video, label: "Video (optional)", widget: file, required: false, hint: "Small looping video shown under this tenet, e.g. assets/Tenet 1.mp4" }
 
   # ---------------------------------------------------------------------
   # Projects
@@ -83,26 +84,26 @@ collections:
             widget: object
             fields:
               - { name: title, label: "Heading", widget: string }
-              - { name: lede,  label: "Subheading", widget: text }
+              - { name: lede, label: "Subheading", widget: text }
           - name: projects
             label: "Projects"
             widget: list
             summary: "{{numeral}} — {{title}}"
             fields:
-              - { name: numeral,    label: "Number",          widget: string }
-              - { name: title,      label: "Title",           widget: string }
-              - { name: body,       label: "Body (Markdown)", widget: markdown }
-              - { name: bullets,    label: "Bullet list (optional)", widget: list, required: false, field: { name: item, label: "Bullet (Markdown)", widget: string } }
+              - { name: numeral, label: "Number", widget: string }
+              - { name: title, label: "Title", widget: string }
+              - { name: body, label: "Body (Markdown)", widget: markdown }
+              - { name: bullets, label: "Bullet list (optional)", widget: list, required: false, field: { name: item, label: "Bullet (Markdown)", widget: string } }
               - { name: body_after, label: "Body after bullets (optional, Markdown)", widget: markdown, required: false }
           - name: closing
             label: "Closing block"
             widget: object
             required: false
             fields:
-              - { name: title,     label: "Heading",           widget: string }
-              - { name: body,      label: "Body (Markdown)",   widget: markdown }
-              - { name: cta_label, label: "Button label",      widget: string }
-              - { name: cta_href,  label: "Button link",       widget: string }
+              - { name: title, label: "Heading", widget: string }
+              - { name: body, label: "Body (Markdown)", widget: markdown }
+              - { name: cta_label, label: "Button label", widget: string }
+              - { name: cta_href, label: "Button link", widget: string }
 
   # ---------------------------------------------------------------------
   # Home page
@@ -119,23 +120,33 @@ collections:
             widget: object
             fields:
               - { name: show_logo, label: "Show logo badge", widget: boolean, default: true }
-              - { name: title,     label: "Title",          widget: string }
-              - { name: lede,      label: "Tagline",        widget: text }
+              - { name: title, label: "Title", widget: string }
+              - { name: lede, label: "Tagline", widget: text }
               - name: buttons
                 label: "Hero buttons"
                 widget: list
                 required: false
                 fields:
                   - { name: label, label: "Label", widget: string }
-                  - { name: href,  label: "Link",  widget: string }
+                  - { name: href, label: "Link", widget: string }
                   - { name: style, label: "Style", widget: select, options: ["primary", "ghost"], default: "primary" }
+              - name: videos
+                label: "Hero videos (optional)"
+                widget: list
+                required: false
+                summary: "{{label}}"
+                fields:
+                  - { name: src, label: "Video file", widget: file, hint: "e.g. assets/Light the Dark.mp4" }
+                  - { name: label, label: "Caption (optional)", widget: string, required: false }
           - name: panels
             label: "Sections"
             widget: list
             summary: "{{heading}}"
             fields:
-              - { name: heading, label: "Heading",         widget: string }
-              - { name: body,    label: "Body (Markdown)", widget: markdown }
+              - { name: heading, label: "Heading", widget: string }
+              - { name: body, label: "Body (Markdown)", widget: markdown }
+              - { name: video, label: "Section video (optional)", widget: file, required: false, hint: "Small looping video shown in this section" }
+              - { name: video_label, label: "Section video caption (optional)", widget: string, required: false }
 
   # ---------------------------------------------------------------------
   # About page
@@ -151,24 +162,24 @@ collections:
             label: "Hero"
             widget: object
             fields:
-              - { name: title, label: "Title",   widget: string }
-              - { name: lede,  label: "Tagline", widget: text }
+              - { name: title, label: "Title", widget: string }
+              - { name: lede, label: "Tagline", widget: text }
           - name: panels
             label: "Sections"
             widget: list
             summary: "{{heading}}"
             fields:
-              - { name: heading, label: "Heading",         widget: string }
-              - { name: body,    label: "Body (Markdown)", widget: markdown }
+              - { name: heading, label: "Heading", widget: string }
+              - { name: body, label: "Body (Markdown)", widget: markdown }
           - name: contact
             label: "Contact form"
             widget: object
             fields:
-              - { name: heading,         label: "Heading",        widget: string }
-              - { name: intro,           label: "Intro",          widget: text }
-              - { name: formspree_id,    label: "Formspree form ID", widget: string }
+              - { name: heading, label: "Heading", widget: string }
+              - { name: intro, label: "Intro", widget: text }
+              - { name: formspree_id, label: "Formspree form ID", widget: string }
               - { name: subject_default, label: "Default subject line", widget: string }
-              - { name: privacy_note,    label: "Privacy note",   widget: text }
+              - { name: privacy_note, label: "Privacy note", widget: text }
 
   # ---------------------------------------------------------------------
   # Join page
@@ -184,16 +195,16 @@ collections:
             label: "Hero"
             widget: object
             fields:
-              - { name: title, label: "Title",   widget: string }
-              - { name: lede,  label: "Tagline", widget: text }
+              - { name: title, label: "Title", widget: string }
+              - { name: lede, label: "Tagline", widget: text }
           - name: panels
             label: "Sections"
             widget: list
             summary: "{{heading}}"
             fields:
-              - { name: heading,   label: "Heading",                 widget: string }
-              - { name: body,      label: "Body (Markdown)",         widget: markdown }
-              - { name: bullets,   label: "Bullet list (optional)",  widget: list, required: false, field: { name: item, label: "Bullet (Markdown)", widget: string } }
+              - { name: heading, label: "Heading", widget: string }
+              - { name: body, label: "Body (Markdown)", widget: markdown }
+              - { name: bullets, label: "Bullet list (optional)", widget: list, required: false, field: { name: item, label: "Bullet (Markdown)", widget: string } }
               - { name: cta_label, label: "Button label (optional)", widget: string, required: false }
-              - { name: cta_href,  label: "Button link (optional)",  widget: string, required: false }
-              - { name: cta_note,  label: "Note under button (optional)", widget: text, required: false }
+              - { name: cta_href, label: "Button link (optional)", widget: string, required: false }
+              - { name: cta_note, label: "Note under button (optional)", widget: text, required: false }

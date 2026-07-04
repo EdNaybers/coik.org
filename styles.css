@@ -324,3 +324,58 @@ form.contact textarea:focus {
 /* ---------- Utility ---------- */
 .center { text-align: center; }
 .small  { font-size: 0.9rem; color: var(--color-text-muted); }
+
+
+/* ---------- Media / videos ---------- */
+/* Small, consistent video embeds. Capped at 540px tall (from 1080p source)
+   and kept within the content column. Every video renders the same size. */
+.media-video {
+  margin: 22px auto;
+  max-width: 100%;
+  text-align: center;
+}
+.media-video video {
+  display: block;
+  width: 100%;
+  max-width: 480px;
+  max-height: 540px;
+  margin: 0 auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  background: #000;
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-soft);
+}
+.media-video-cap {
+  margin-top: 10px;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+}
+
+/* Home hero strip: the two feature videos side by side, wrapping on small screens. */
+.media-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  justify-content: center;
+  align-items: flex-start;
+  margin: 8px auto 8px;
+}
+.media-strip .media-video {
+  flex: 1 1 320px;
+  max-width: 440px;
+  margin: 0;
+}
+
+/* Tenet cards: keep the per-tenet video modest and left-aligned within the card. */
+.tenets li .media-video {
+  margin: 16px 0 0;
+  text-align: left;
+}
+.tenets li .media-video video {
+  margin: 0;
+  max-width: 360px;
+}

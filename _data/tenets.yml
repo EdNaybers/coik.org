@@ -1,53 +1,60 @@
 page:
   title: Our Tenets
   lede: |-
-    These tenets are commitments, the practices we hold ourselves to as members of this church. We pursue them imperfectly but vigorously, and in balance with our other needs and abilities. 
+    These tenets are commitments, the practices we hold ourselves to as members of this church. We pursue them imperfectly but vigorously, and in balance with our other needs and abilities.
 
-    Knowledge is power, and truth, and fuel for progress. We seek to unearth, create, share, and protect it wherever it may be found. 
+    Knowledge is power, and truth, and fuel for progress. We seek to unearth, create, share, and protect it wherever it may be found.
 
-    Knowledge relies on functional and independent people in order to grow and act. We protect the people and conditions in which knowledge becomes enlightenment. 
+    Knowledge relies on functional and independent people in order to grow and act. We protect the people and conditions in which knowledge becomes enlightenment.
 
     Knowledge that is not acted upon is unfinished, powerless, and wasted. These tenets also address how we close the loop, ensuring knowledge becomes influence.
 tenets:
   - numeral: I
     title: Knowledge Seeking
+    video: "assets/Tenet 1.mp4"
     body: |-
       The pursuit of understanding by ourselves, by others, by those not yet born, is the highest practice we know. To seek, to learn, to teach, to preserve, to share, and to create knowledge are sacred acts. We revere knowledge because it is tested, verifiable, and uniquely capable of healing and shaping our world.
 
       Knowledge belongs to everyone. We oppose artificial barriers of cost, caste, credential, censorship, taboo, convention, or culture that keep people from sharing or learning what they wish.
   - numeral: II
     title: Humble Discernment
+    video: "assets/Tenet 2.mp4"
     body: |-
-      We accept claims in proportion to the evidence offered for them, and no further. Belief held in the absence of evidence or in defiance of it is not a virtue here; it is the refusal to do the work that knowledge requires. 
+      We accept claims in proportion to the evidence offered for them, and no further. Belief held in the absence of evidence or in defiance of it is not a virtue here; it is the refusal to do the work that knowledge requires.
 
       We choose the harder honesty: to say "I do not yet know," to follow the evidence wherever it leads, and to change our minds when it changes course. We also embrace the discomfort of not knowing, using it to fuel our ongoing search for truth.
   - numeral: III
     title: Peaceful Presence
+    video: "assets/Tenet 3.mp4"
     body: |-
-      We reject violence and coercion, in deed and in support. We know the reality of suffering wrought by violence and coercion, by experience and observation; to create this suffering with intent is completely forbidden. 
+      We reject violence and coercion, in deed and in support. We know the reality of suffering wrought by violence and coercion, by experience and observation; to create this suffering with intent is completely forbidden.
 
       No truth is worth a wound. No idea is justifiably advanced by harm. We do not use force, threat, or intimidation, and we are not silent when others do. We also refuse to fund, work with/for, or lend our reputation or counsel to those who engage in violence. We act upon others only with their freely given consent.
   - numeral: IV
     title: Self Ownership
+    video: "assets/Tenet 4.mp4"
     body: |-
-      The first knowledge any person possesses is the knowledge of their own body, what it feels, what it needs, what it can bear. That knowledge belongs to no other, no state, no employer, no doctor, no spouse, and no stranger. 
+      The first knowledge any person possesses is the knowledge of their own body, what it feels, what it needs, what it can bear. That knowledge belongs to no other, no state, no employer, no doctor, no spouse, and no stranger.
 
       We hold that every person has the right to gather information freely, weigh it by their own conscience, and decide for themselves what they put into their body, what is taken from it, and what is done with it. No institution or person may override that decision with shame, coercion, mandate, or punishment.
   - numeral: V
     title: Sovereign Humanism
+    video: "assets/Tenet 5.mp4"
     body: |-
-      Because this life is the only one we know exists, our ultimate moral duty is to maximize health, self-determination, and free expression for all human beings today. Flourishing is defined by each individual for themselves but not others. 
+      Because this life is the only one we know exists, our ultimate moral duty is to maximize health, self-determination, and free expression for all human beings today. Flourishing is defined by each individual for themselves but not others.
 
       We recognize humanity as sovereign individuals bound by a shared capacity for joy and sorrow, pleasure and pain. Because our capacity for feeling is universal, every individual merits equal consideration. Our shared human nature is precisely why our unique differences require absolute autonomy.
   - numeral: VI
     title: Knowledge Stewardship
+    video: "assets/Tenet 6.mp4"
     body: |-
-      Books can burn. Languages can die. Memories can fade. But none of these are inevitable. We protect, archive, and pass forward the knowledge that would otherwise be lost. We do not give our wealth, labor, or attention to institutions that distort, suppress, or destroy knowledge. 
+      Books can burn. Languages can die. Memories can fade. But none of these are inevitable. We protect, archive, and pass forward the knowledge that would otherwise be lost. We do not give our wealth, labor, or attention to institutions that distort, suppress, or destroy knowledge.
 
       We practice radical generosity with our knowledge, championing open-source creation as a gift to all humanity. Free knowledge proliferates when boundaries dissolve, allowing communities to build upon a shared foundation, collaborate without restriction, and accelerate human innovation.
   - numeral: VII
     title: Informed Action
+    video: "assets/Tenet 7.mp4"
     body: |-
-      We embody the truths we uncover. When our understanding demands that we speak out, withdraw from harm, offer aid, or rebuild what is broken, we commit our full strength to action. 
+      We embody the truths we uncover. When our understanding demands that we speak out, withdraw from harm, offer aid, or rebuild what is broken, we commit our full strength to action.
 
       Knowledge without practice is a seed left to wither; to know what is true yet refuse to shape the world by it is a quiet betrayal.
