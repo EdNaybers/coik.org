@@ -337,7 +337,7 @@ form.contact textarea:focus {
 .media-video video {
   display: block;
   width: 100%;
-  max-width: 480px;
+  max-width: 960px;
   max-height: 540px;
   margin: 0 auto;
   aspect-ratio: 16 / 9;
@@ -366,16 +366,16 @@ form.contact textarea:focus {
 }
 .media-strip .media-video {
   flex: 1 1 320px;
-  max-width: 440px;
+  max-width: 960px;
   margin: 0;
 }
 
 /* Tenet cards: keep the per-tenet video modest and left-aligned within the card. */
 .tenets li .media-video {
   margin: 16px 0 0;
-  text-align: left;
+  text-align: center;
 }
 .tenets li .media-video video {
-  margin: 0;
-  max-width: 360px;
+  margin: 0 auto;
+  max-width: 960px;
 }
