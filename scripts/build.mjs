@@ -2,7 +2,7 @@
 // Renders the COIK static site from YAML data files into HTML pages.
 // Run with: node scripts/build.mjs
 //
-// Inputs:  _data/site.yml, _data/tenets.yml, _data/projects.yml, _data/pages/*.yml
+// Inputs: _data/site.yml, _data/tenets.yml, _data/projects.yml, _data/pages/*.yml
 // Outputs: index.html, tenets.html, projects.html, about.html, join.html
 
 import { readFileSync, writeFileSync } from "node:fs";
@@ -20,9 +20,9 @@ const site = loadYaml("_data/site.yml");
 const tenetsData = loadYaml("_data/tenets.yml");
 const projectsData = loadYaml("_data/projects.yml");
 const pages = {
-  home:  loadYaml("_data/pages/home.yml"),
+  home: loadYaml("_data/pages/home.yml"),
   about: loadYaml("_data/pages/about.yml"),
-  join:  loadYaml("_data/pages/join.yml"),
+  join: loadYaml("_data/pages/join.yml"),
 };
 
 // -- Helpers --------------------------------------------------------------
@@ -34,22 +34,33 @@ const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({
 const md = (s) => marked.parse(String(s ?? "").trim());
 const mdInline = (s) => marked.parseInline(String(s ?? "").trim());
 
+// Render an optional small looping video. Accepts a media path (e.g.
+// "assets/Tenet 1.mp4"). The path is attribute-escaped; no raw HTML is
+// taken from data. Returns "" when no video is provided.
+const videoHTML = (src, label) => {
+  if (!src) return "";
+  const cap = label ? `\n      <figcaption class="media-video-cap">${esc(label)}</figcaption>` : "";
+  return `  <figure class="media-video">
+      <video src="${esc(src)}" controls muted loop playsinline preload="metadata"></video>${cap}
+    </figure>`;
+};
+
 // Page key -> output file + display title
 const PAGE_META = {
-  home:     { file: "index.html",    nav: "home"     },
-  tenets:   { file: "tenets.html",   nav: "tenets"   },
+  home: { file: "index.html", nav: "home" },
+  tenets: { file: "tenets.html", nav: "tenets" },
   projects: { file: "projects.html", nav: "projects" },
-  about:    { file: "about.html",    nav: "about"    },
-  join:     { file: "join.html",     nav: "join"     },
+  about: { file: "about.html", nav: "about" },
+  join: { file: "join.html", nav: "join" },
 };
 
 function navHTML(activeKey) {
   const items = site.nav.map((n) => {
     const href = PAGE_META[n.page]?.file || (n.page + ".html");
     const cls = n.page === activeKey ? ' class="active"' : "";
-    return `        <a href="${esc(href)}"${cls}>${esc(n.label)}</a>`;
+    return `      <a href="${esc(href)}"${cls}>${esc(n.label)}</a>`;
   }).join("\n");
-  return `      <nav class="primary" aria-label="Primary">\n${items}\n      </nav>`;
+  return `    <nav class="primary" aria-label="Primary">\n${items}\n    </nav>`;
 }
 
 function headerHTML(activeKey) {
@@ -100,67 +111,68 @@ function headHTML(pageTitle, pageDesc) {
 function heroHTML(hero, withBadge = false) {
   if (!hero) return "";
   const badge = withBadge && hero.show_logo
-    ? `      <div class="badge-lg"><img src="assets/coik_logo.png" alt="${esc(site.title)} logo" /></div>\n`
+    ? `    <div class="badge-lg"><img src="assets/coik_logo.png" alt="${esc(site.title)} logo" /></div>\n`
     : "";
   const btns = (hero.buttons || []).map((b) => {
     const cls = b.style === "ghost" ? "btn ghost" : "btn";
-    return `        <a class="${cls}" href="${esc(b.href)}">${esc(b.label)}</a>`;
+    return `      <a class="${cls}" href="${esc(b.href)}">${esc(b.label)}</a>`;
   }).join("\n");
-  const btnRow = btns ? `      <div class="btn-row">\n${btns}\n      </div>\n` : "";
-  return `    <section class="hero${withBadge ? " container" : ""}">
-${badge}      <h1>${esc(hero.title)}</h1>
-      <p class="lede">${esc(hero.lede)}</p>
-${btnRow}    </section>`;
+  const btnRow = btns ? `    <div class="btn-row">\n${btns}\n    </div>\n` : "";
+  return `  <section class="hero${withBadge ? " container" : ""}">
+${badge}    <h1>${esc(hero.title)}</h1>
+    <p class="lede">${esc(hero.lede)}</p>
+${btnRow}  </section>`;
 }
 
 function panelHTML(panel) {
   const bullets = panel.bullets && panel.bullets.length
-    ? `        <ul>\n${panel.bullets.map((b) => `          <li>${mdInline(b)}</li>`).join("\n")}\n        </ul>\n`
+    ? `    <ul>\n${panel.bullets.map((b) => `      <li>${mdInline(b)}</li>`).join("\n")}\n    </ul>\n`
     : "";
+  const video = panel.video ? `\n${videoHTML(panel.video, panel.video_label)}\n` : "";
   const cta = panel.cta_label && panel.cta_href
-    ? `        <p class="center" style="margin-top:24px;"><a class="btn" href="${esc(panel.cta_href)}" rel="noopener">${esc(panel.cta_label)}</a></p>\n${panel.cta_note ? `        <p class="small center">${esc(panel.cta_note)}</p>\n` : ""}`
+    ? `    <p class="center" style="margin-top:24px;"><a class="btn" href="${esc(panel.cta_href)}" rel="noopener">${esc(panel.cta_label)}</a></p>\n${panel.cta_note ? `    <p class="small center">${esc(panel.cta_note)}</p>\n` : ""}`
     : "";
-  return `      <section class="panel">
-        <h2>${esc(panel.heading)}</h2>
-        ${md(panel.body)}
-${bullets}${cta}      </section>`;
+  return `  <section class="panel">
+    <h2>${esc(panel.heading)}</h2>
+${md(panel.body)}
+${bullets}${video}${cta}  </section>`;
 }
 
 function contactFormHTML(c) {
   if (!c) return "";
-  return `      <section class="panel">
-        <h2>${esc(c.heading)}</h2>
-        <p>${esc(c.intro)}</p>
-        <form class="contact" action="https://formspree.io/f/${esc(c.formspree_id)}" method="POST">
-          <div class="form-row">
-            <div>
-              <label for="name">Name</label>
-              <input id="name" type="text" name="name" autocomplete="name" required />
-            </div>
-            <div>
-              <label for="email">Email</label>
-              <input id="email" type="email" name="email" autocomplete="email" required />
-            </div>
-          </div>
-          <div>
-            <label for="subject">Subject</label>
-            <input id="subject" type="text" name="subject" />
-          </div>
-          <div>
-            <label for="message">Message</label>
-            <textarea id="message" name="message" required></textarea>
-          </div>
-          <div class="hp" aria-hidden="true">
-            <label for="website">Leave this field blank</label>
-            <input id="website" type="text" name="_gotcha" tabindex="-1" autocomplete="off" />
-          </div>
-          <input type="hidden" name="_subject" value="${esc(c.subject_default)}" />
-          <div>
-            <button class="btn" type="submit">Send message</button>
-          </div>
-          <p class="small">${esc(c.privacy_note)}</p>
-        </form>
-      </section>`;
+  return `  <section class="panel">
+    <h2>${esc(c.heading)}</h2>
+    <p>${esc(c.intro)}</p>
+    <form class="contact" action="https://formspree.io/f/${esc(c.formspree_id)}" method="POST">
+      <div class="form-row">
+        <div>
+          <label for="name">Name</label>
+          <input id="name" type="text" name="name" autocomplete="name" required />
+        </div>
+        <div>
+          <label for="email">Email</label>
+          <input id="email" type="email" name="email" autocomplete="email" required />
+        </div>
+      </div>
+      <div>
+        <label for="subject">Subject</label>
+        <input id="subject" type="text" name="subject" />
+      </div>
+      <div>
+        <label for="message">Message</label>
+        <textarea id="message" name="message" required></textarea>
+      </div>
+      <div class="hp" aria-hidden="true">
+        <label for="website">Leave this field blank</label>
+        <input id="website" type="text" name="_gotcha" tabindex="-1" autocomplete="off" />
+      </div>
+      <input type="hidden" name="_subject" value="${esc(c.subject_default)}" />
+      <div>
+        <button class="btn" type="submit">Send message</button>
+      </div>
+      <p class="small">${esc(c.privacy_note)}</p>
+    </form>
+  </section>`;
 }
 
 function bodyOpen() { return "<body>"; }
@@ -170,19 +182,22 @@ function bodyClose() { return "</body>\n</html>\n"; }
 
 function renderHome() {
   const p = pages.home;
+  const heroVideos = (p.hero && p.hero.videos && p.hero.videos.length)
+    ? `\n  <section class="container media-strip">\n${p.hero.videos.map((v) => videoHTML(v.src, v.label)).join("\n")}\n  </section>\n`
+    : "";
   const html = `${headHTML("", site.description)}
 ${bodyOpen()}
 ${headerHTML("home")}
 
-  <main>
+<main>
 ${heroHTML(p.hero, true)}
-
-    <div class="container">
-      <hr class="divider" />
+${heroVideos}
+  <div class="container">
+    <hr class="divider" />
 
 ${p.panels.map(panelHTML).join("\n\n")}
-    </div>
-  </main>
+  </div>
+</main>
 
 ${footerHTML()}
 ${bodyClose()}`;
@@ -191,25 +206,28 @@ ${bodyClose()}`;
 
 function renderTenets() {
   const t = tenetsData;
-  const list = t.tenets.map((x) => `          <li>
-            <h3>${esc(x.numeral)}. ${esc(x.title)}</h3>
-            <p>${esc(String(x.body).trim())}</p>
-          </li>`).join("\n");
+  const list = t.tenets.map((x) => {
+    const video = x.video ? `\n${videoHTML(x.video, "Tenet " + x.numeral)}` : "";
+    return `      <li>
+        <h3>${esc(x.numeral)}. ${esc(x.title)}</h3>
+        <p>${esc(String(x.body).trim())}</p>${video}
+      </li>`;
+  }).join("\n");
   const html = `${headHTML("Tenets", "The tenets of " + site.title + ".")}
 ${bodyOpen()}
 ${headerHTML("tenets")}
 
-  <main>
-    <div class="container">
+<main>
+  <div class="container">
 ${heroHTML(t.page, false)}
 
-      <section class="panel">
-        <ol class="tenets">
+  <section class="panel">
+    <ol class="tenets">
 ${list}
-        </ol>
-      </section>
-    </div>
-  </main>
+    </ol>
+  </section>
+  </div>
+</main>
 
 ${footerHTML()}
 ${bodyClose()}`;
@@ -220,35 +238,35 @@ function renderProjects() {
   const d = projectsData;
   const projectPanels = d.projects.map((p) => {
     const bullets = p.bullets && p.bullets.length
-      ? `        <ul>\n${p.bullets.map((b) => `          <li>${mdInline(b)}</li>`).join("\n")}\n        </ul>\n`
+      ? `    <ul>\n${p.bullets.map((b) => `      <li>${mdInline(b)}</li>`).join("\n")}\n    </ul>\n`
       : "";
     const after = p.body_after ? md(p.body_after) : "";
-    return `      <section class="panel">
-        <h2>${esc(p.numeral)}. ${esc(p.title)}</h2>
-        ${md(p.body)}
-${bullets}        ${after}
-      </section>`;
+    return `  <section class="panel">
+    <h2>${esc(p.numeral)}. ${esc(p.title)}</h2>
+${md(p.body)}
+${bullets}    ${after}
+  </section>`;
   }).join("\n\n");
   const closing = d.closing
-    ? `      <section class="panel">
-        <h2>${esc(d.closing.title)}</h2>
-        ${md(d.closing.body)}
-        <p class="center" style="margin-top:18px;"><a class="btn ghost" href="${esc(d.closing.cta_href)}">${esc(d.closing.cta_label)}</a></p>
-      </section>`
+    ? `  <section class="panel">
+    <h2>${esc(d.closing.title)}</h2>
+${md(d.closing.body)}
+    <p class="center" style="margin-top:18px;"><a class="btn ghost" href="${esc(d.closing.cta_href)}">${esc(d.closing.cta_label)}</a></p>
+  </section>`
     : "";
   const html = `${headHTML("Projects", "Current projects of " + site.title + ".")}
 ${bodyOpen()}
 ${headerHTML("projects")}
 
-  <main>
-    <div class="container">
+<main>
+  <div class="container">
 ${heroHTML(d.page, false)}
 
 ${projectPanels}
 
 ${closing}
-    </div>
-  </main>
+  </div>
+</main>
 
 ${footerHTML()}
 ${bodyClose()}`;
@@ -261,15 +279,15 @@ function renderAbout() {
 ${bodyOpen()}
 ${headerHTML("about")}
 
-  <main>
-    <div class="container">
+<main>
+  <div class="container">
 ${heroHTML(p.hero, false)}
 
 ${p.panels.map(panelHTML).join("\n\n")}
 
 ${contactFormHTML(p.contact)}
-    </div>
-  </main>
+  </div>
+</main>
 
 ${footerHTML()}
 ${bodyClose()}`;
@@ -282,13 +300,13 @@ function renderJoin() {
 ${bodyOpen()}
 ${headerHTML("join")}
 
-  <main>
-    <div class="container">
+<main>
+  <div class="container">
 ${heroHTML(p.hero, false)}
 
 ${p.panels.map(panelHTML).join("\n\n")}
-    </div>
-  </main>
+  </div>
+</main>
 
 ${footerHTML()}
 ${bodyClose()}`;
