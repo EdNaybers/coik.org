@@ -16,14 +16,15 @@ panels:
     cta_href: https://kloak.app/invite/DNSQFEUE
     cta_note: Opens kloak.app in a new tab. You can browse anonymously before deciding to participate.
   - heading: How to support the church
-    body: Donate. We accept general donations to support our mission and operating costs, and voluntary support for specific church projects.
+    body: 'You can support us in various ways:'
     bullets:
+      - '**Donate.** We accept general donations to support our mission and operating costs, and voluntary support for specific church projects.'
       - '**Show up.** Read the forum. Reply to a new member. Ask a real question.'
       - '**Teach what you know.** Write a short explainer of something you understand well. Recommend a book. Demystify a topic for someone who finds it intimidating.'
       - '**Preserve something.** Archive a webpage that might disappear. Transcribe a recording. Catalog a collection. Save something from being forgotten.'
       - '**Share what you learn.** If you discover something useful, bring it back to the community.'
       - '**Invite the curious.** If you know someone who would feel at home here, point them to this site.'
-      - '**Be kind in public.** The clearest support you can offer the church is to live its tenets visibly — to be a person whose love of knowledge makes the world a little easier on others.'
+      - '**Be kind in public.** Any easy form of support you can offer the church is to live its tenets visibly, to be a person whose love of knowledge makes the world a little easier on others.'
     cta_label: ''
     cta_href: ''
     cta_note: ''
