@@ -1,34 +1,34 @@
-# Join & Support page
-
 hero:
-  title: "Join & Support"
-  lede: "Membership in the Church of Infinite Knowledge is entirely free — and always will be."
-
+  title: Join & Support
+  lede: Membership in the Church of Infinite Knowledge is entirely free.
 panels:
-  - heading: "Free, forever"
-    body: |
-      There are no dues. There are no tithes. There are no membership tiers, premium teachings, paid courses, donor benefits, or hidden costs of any kind. We do not, and will not, ask for money in exchange for belonging to this community.
+  - heading: Free membership
+    body: |-
+      There are no dues. There are no membership tiers or hidden costs of any kind.
 
       We hold this commitment as a matter of principle. A community organized around the free exchange of knowledge cannot, in good conscience, charge admission to itself.
-
-  - heading: "How to join"
-    body: |
-      Our community gathers on a private forum hosted at **kloak.app**. Joining takes about a minute and requires only that you create an account on Kloak using the invite link below. Once inside, you can introduce yourself, read along, ask questions, share what you are learning, or simply listen.
-    cta_label: "Accept the invite & join"
-    cta_href: "https://kloak.app/invite/DNSQFEUE"
-    cta_note: "Opens kloak.app in a new tab. You can browse anonymously before deciding to participate."
-
-  - heading: "How to support the church"
-    body: |
-      Because we do not accept money, support takes other forms — forms that are, we think, more meaningful anyway:
+    cta_label: ''
+    cta_href: ''
+    cta_note: ''
+  - heading: How to join
+    body: Our community gathers on a private forum hosted at **kloak.app**. Joining takes about a minute and requires only that you create an account on Kloak using the invite link below. Once inside, you can introduce yourself, read along, ask questions, share what you are learning, or simply listen.
+    cta_label: Accept the invite & join
+    cta_href: https://kloak.app/invite/DNSQFEUE
+    cta_note: Opens kloak.app in a new tab. You can browse anonymously before deciding to participate.
+  - heading: How to support the church
+    body: Donate. We accept general donations to support our mission and operating costs, and voluntary support for specific church projects.
     bullets:
-      - "**Show up.** Read the forum. Reply to a new member. Ask a real question."
-      - "**Teach what you know.** Write a short explainer of something you understand well. Recommend a book. Demystify a topic for someone who finds it intimidating."
-      - "**Preserve something.** Archive a webpage that might disappear. Transcribe a recording. Catalog a collection. Save something from being forgotten."
-      - "**Share what you learn.** If you discover something useful, bring it back to the community."
-      - "**Invite the curious.** If you know someone who would feel at home here, point them to this site."
-      - "**Be kind in public.** The clearest support you can offer the church is to live its tenets visibly — to be a person whose love of knowledge makes the world a little easier on others."
-
-  - heading: "A word on commitment"
-    body: |
-      There is no oath required to join us, and no penalty for leaving. We ask only that, while you are here, you treat fellow members with dignity, that you neither use violence nor abet it, and that you keep faith with the simple idea at the heart of this church: that knowledge is sacred, and that the freedom to seek it belongs to everyone.
+      - '**Show up.** Read the forum. Reply to a new member. Ask a real question.'
+      - '**Teach what you know.** Write a short explainer of something you understand well. Recommend a book. Demystify a topic for someone who finds it intimidating.'
+      - '**Preserve something.** Archive a webpage that might disappear. Transcribe a recording. Catalog a collection. Save something from being forgotten.'
+      - '**Share what you learn.** If you discover something useful, bring it back to the community.'
+      - '**Invite the curious.** If you know someone who would feel at home here, point them to this site.'
+      - '**Be kind in public.** The clearest support you can offer the church is to live its tenets visibly — to be a person whose love of knowledge makes the world a little easier on others.'
+    cta_label: ''
+    cta_href: ''
+    cta_note: ''
+  - heading: A word on commitment
+    body: 'There is no commitment required to join us, and no penalty for leaving. We ask only that, while you are here, you treat fellow members with dignity, that you neither use violence nor abet it, and that you keep faith with the simple idea at the heart of this church: that knowledge is sacred, and that the freedom to seek it belongs to everyone.'
+    cta_label: ''
+    cta_href: ''
+    cta_note: ''
